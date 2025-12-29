@@ -1,0 +1,120 @@
+# Relay Bus
+
+Monorepo for the Relay Bus project, managed with **Turborepo** and **pnpm**.
+Designed for fast onboarding, shared code, and consistent development across the team.
+
+---
+
+##  Repo Structure
+
+```
+apps/        # Applications
+packages/    # Shared code & configs
+```
+
+**Apps**
+
+* `apps/web` → Main Next.js app
+* `apps/docs` → Documentation site
+
+**Packages**
+
+* `packages/ui` → Shared UI components
+* `packages/eslint-config` → ESLint rules
+* `packages/typescript-config` → TypeScript config
+
+---
+
+##  Requirements
+
+* Node.js **11.6.2**
+* pnpm **10.26.2**
+
+Install pnpm (one time):
+
+```bash
+npm install -g pnpm
+```
+
+---
+
+##  Start Development
+
+From the repo root:
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Apps will be available at:
+
+| App  | URL                                            |
+| ---- | ---------------------------------------------- |
+| Web  | [http://localhost:3000](http://localhost:3000) |
+| Docs | [http://localhost:3001](http://localhost:3001) |
+
+---
+
+##  Run a Single App
+
+```bash
+pnpm --filter web dev
+pnpm --filter docs dev
+```
+
+
+> Migration commands depend on the database tool (Prisma / Drizzle / etc).
+
+---
+
+##  Team Rules
+
+* Use **pnpm only** (no npm/yarn lockfiles)
+* Shared logic lives in `packages/`
+* Do not duplicate code between apps
+* Use root scripts whenever possible
+
+---
+
+##  Common Commands
+
+```bash
+pnpm dev     # Run all apps
+pnpm build   # Build all apps
+pnpm lint    # Lint everything
+```
+## 
+''' updat ci
+pnpm ci
+pnpm turbo build
+'''
+
+
+## Initialize backend project (Node.js + TypeScript + Express)
+## 1 add nod.js
+mkdir services
+cd services
+pnpm init 
+
+## 2 add exprees
+pnpm add express dotenv
+pnpm add -D typescript ts-node nodemon @types/node @types/express
+## 3 add tcpescript
+npx tsc --init 
+or from root project pnpm add express --filter @relay/hello-service
+
+add to user sevice
+pnpm add express --filter @relay/users
+
+# run server  semple service backend
+
+pnpm turbo run dev --filter=@relay/hello-service
+
+
+Users Service running on port 3003
+hello Service running on port 3002
+
+
+# add docker 
+
